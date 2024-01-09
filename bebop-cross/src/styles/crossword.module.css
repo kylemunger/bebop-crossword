@@ -1,0 +1,38 @@
+.crosswordGrid {
+  display: grid;
+  grid-gap: 0;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.crosswordCell {
+  width: 100%;
+  padding-top: 100%; /* Keep the cell square */
+  position: relative;
+  border: 1px solid black;
+  box-sizing: border-box;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+.crosswordCell:hover {
+  background-color: purple;
+}
+
+.cellContent {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.blackSquare {
+  background-color: grey;
+}

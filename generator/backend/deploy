@@ -1,0 +1,18 @@
+#!/bin/bash
+# deploy
+
+DIR="$(dirname "${BASH_SOURCE[0]}")"
+echo -e "script dir: $DIR\n"
+
+echo "Stopping running container"
+redis-cli GET "generator:backend:container:id" | xargs docker stop
+
+echo "Building docker container"
+docker build -t backend:latest "$DIR/"
+
+echo "Running docker container"
+id=$(docker run -d -p 30000:8080 -e OPENAI_API_KEY="$(secret get OPENAI_API_KEY)" backend:latest)
+
+redis-cli SET "generator:backend:container:id" "$id"
+echo "Container id: $id"
+docker logs -f "$id"

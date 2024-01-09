@@ -1,0 +1,144 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 20px;
+}
+
+.stickyContainer {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+}
+
+.scrollContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* align child items horizontally centered and vertically centered */
+    align-items: center;
+    justify-content: center;
+}
+
+.inputField {
+    background-color: #333;
+    border: 1px solid #555;
+    color: white;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.addButton {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.regenerateButton {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.deleteButton {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.addButton:hover, .deleteButton:hover, .regenerateButton:hover {
+    background-color: salmon;
+}
+
+.wordList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.wordContainer {
+    display: flex;
+    background-color: #222;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.wordDescription {
+    color: #ccc; /* Lighter text color for description */
+    font-weight: normal;
+    margin: 0; /* Remove default margins */
+}
+
+.highlightedChar {
+    color: salmon;
+    font-weight: bold;
+}
+
+.wordText {
+    margin-right: 10px;
+}
+
+.wordTitleContainer {
+    flex: 1;
+    background-color: #4527A0;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Spacing between title and description/delete button */
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.descriptionAndDeleteContainer {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.dictionarySection {
+    background-color: #1e1e1e; /* Slightly lighter than the main background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Soft shadow for floating effect */
+    padding: 20px;
+    margin: 20px 0;
+    color: white; /* Assuming a dark theme */
+}
+
+.dictionaryHeader {
+    background-color: #292929; /* Even lighter or different color for the header */
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Lighter shadow for the header */
+    margin: -20px -20px 20px -20px; /* Aligns header with outer container */
+    text-align: center;
+    font-size: 1.5em;
+}

@@ -1,0 +1,49 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10 columns */
+  grid-template-rows: repeat(10, 1fr); /* 10 rows */
+  gap: 5px; /* space between squares */
+  justify-content: center; /* center the grid horizontally */
+  align-content: center; /* center the grid vertically */
+  height: 100vh; /* full viewport height */
+}
+
+.square {
+  background-color: white;
+  border: 1px solid black; /* border to distinguish squares */
+}
+
+.gridInteractive {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* Use a fraction of the available space for each column */
+  grid-gap: 5px; /* Space between squares */
+  padding: 5px; /* Padding around the grid */
+  width: 100%; /* Grid takes full width of its container */
+  max-width: 100vh; /* Maximum width of the grid */
+  margin: auto; /* Center the grid horizontally */
+}
+
+.squareInteractive {
+  width: 100%; /* Make input take full width of the grid cell */
+  aspect-ratio: 1 / 1; /* Maintain aspect ratio to be a square */
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 16px; /* Adjust as needed */
+  line-height: normal; /* Default line height */
+  padding: 0;
+  box-sizing: border-box;
+  color: black; /* Font color */
+}
+
+.squareInteractive:hover {
+  background-color: purple;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+}

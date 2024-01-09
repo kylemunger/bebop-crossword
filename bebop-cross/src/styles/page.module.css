@@ -1,0 +1,59 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full viewport height */
+    background-color: black; /* Assuming your background is black */
+    color: white; /* Text color for visibility */
+    padding: 20px;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  position: sticky;
+  top: 0px;
+}
+
+.bigContentContainer {
+    display: flex;
+    flex: 1; /* Takes up the remaining space after the header */
+    flex-direction: row; /* Aligns the components horizontally */
+    margin-top: 40px;
+    max-height: 100%;
+    position: sticky;
+    align-items: flex-start;
+    height: 100vh - 20px;
+    overflow: hidden;
+    top: 40px;
+}
+
+.contentContainer {
+    display: flex;
+    flex: 1; /* Takes up the remaining space after the header */
+    flex-direction: column; /* Aligns the components horizontally */
+}
+
+.dictionaryManagerContainer {
+    flex: 1; /* Adjust the flex ratio as needed */
+    margin-right: 20px; /* Spacing between the components */
+    overflow-y: auto; /* Scrollbar if the content is too long */
+    max-height: 100%;
+}
+
+.crosswordContainer {
+    flex: 2; /* Adjust the flex ratio as needed */
+    height: auto; /* Full height of the parent */
+    position: sticky; /* Needed if you want the crossword to be absolutely positioned */
+    overflow: hidden;
+    top: 40px;
+}
+
+.suggestionsContainer {
+    height: auto; /* Let it take the height it needs */
+    position: sticky;
+    top: 20px; /* Adjust this based on your header height */
+}

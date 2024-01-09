@@ -1,0 +1,30 @@
+.suggestionsBox {
+    background-color: #2a2a2a; /* Dark background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Soft shadow for depth */
+    color: #e0e0e0; /* Light text color for readability */
+    padding: 15px;
+    margin-top: 20px;
+    width: 100%; /* Adjust width as needed */
+    max-height: 300px; /* Example maximum height */
+    overflow-y: auto; /* Adds scrollbar when content overflows */ 
+}
+
+.suggestionsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.suggestionItem {
+    background-color: #333333; /* Slightly lighter background for items */
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px; /* Space between items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow for items */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.suggestionItem:hover {
+    background-color: #3d3d3d; /* Slightly lighter on hover */
+}
