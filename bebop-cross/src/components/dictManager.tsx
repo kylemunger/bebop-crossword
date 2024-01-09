@@ -54,7 +54,7 @@ const DictionaryManager: React.FC<DictionaryManagerProps> = ({ wordList, setWord
           className={styles.inputField}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search for or enter new word"
+          placeholder="Search for a word"
         />
       </div>
       <ul className={styles.wordList}>

@@ -23,9 +23,50 @@
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
+    margin-top: 20px;
+}
+
+
+.recommendedClue {
+    background-color: #4CAF50; /* Greenish button color */
+    display: flex;
+    justify-content: space-between; /* Aligns children to opposite ends */
+    align-items: center; /* Vertically centers children in the container */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.recAddButton {
+    background-color: #4CAF50; /* Greenish button color */
+    color: white;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.addButton:hover {
+    background-color: #45a049;
 }
 
 .addButton:hover, .recommendButton:hover {
+    background-color: #45a049;
+}
+
+.button {
+    background-color: #4CAF50; /* Greenish button color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
     background-color: #45a049;
 }
 
@@ -38,4 +79,18 @@
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 10px;
+}
+
+.recommendedItem {
+    display: flex;
+    justify-content: space-between; /* Aligns children to opposite ends */
+    align-items: center; /* Vertically centers children in the container */
+    background-color: #2a2a2a; /* Slightly lighter background */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.recommendedCluesAndWordsContainer {
+    margin-top: 20px;
 }
