@@ -26,6 +26,11 @@
     margin-top: 20px;
 }
 
+.buttonsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Vertically centers children in the container */
+}
 
 .recommendedClue {
     background-color: #4CAF50; /* Greenish button color */

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styles from '../styles/clueBuilder.module.css';
 
+interface ClueBuilderProps {
+    add_clue_to_dict: (clue: string, word: string) => void;
+}
+
 const ClueBuilder = ({ add_clue_to_dict }) => {
     const [word, setWord] = useState('');
     const [clue, setClue] = useState('');
@@ -60,10 +64,10 @@ const ClueBuilder = ({ add_clue_to_dict }) => {
                 placeholder="Enter clue"
                 className={styles.inputField}
             />
-            <button onClick={handleAddWord} className={styles.addButton}>Add Word</button>
-            <button onClick={handleRecommendClues} className={styles.recommendButton}>Recommend Clues</button>
-            <button onClick={handleRecommendCluesAndWords} className={styles.button}>Recommend Clues and Words</button>
-            <button onClick={handleClear} className={styles.button}>Clear</button>
+                <button onClick={handleAddWord} className={styles.addButton}>Add Word</button>
+                <button onClick={handleRecommendClues} className={styles.recommendButton}>Recommend Clues</button>
+                <button onClick={handleRecommendCluesAndWords} className={styles.button}>Recommend Clues and Words</button>
+                <button onClick={handleClear} className={styles.button}>Clear</button>
             <div className={styles.recommendedCluesContainer}>
                 {recommendedClues.map((clue, index) => (
                     <div key={index} className={styles.recommendedItem}>

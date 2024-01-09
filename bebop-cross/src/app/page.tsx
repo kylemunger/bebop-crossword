@@ -6,20 +6,28 @@ import Spinner from '../components/spinner'
 import styles from '../styles/page.module.css'
 import words from './words'
 
+interface WordItem {
+  word: string;
+  clue: string;
+}
+
 export default function Home() {
   var defaultPuzzleData = [['C', 'L', 'A', 'S', 'S', '#', 'A', 'C', 'T', '#', 'L'], ['L', '#', 'C', '#', 'N', '#', 'I', '#', 'I', 'C', 'E'], ['A', 'C', 'T', '#', 'O', '#', 'R', '#', 'N', '#', 'G'], ['S', '#', '#', 'D', 'R', 'Y', '#', 'T', '#', 'D', '#'], ['S', 'P', 'Y', '#', 'E', '#', 'G', 'R', 'A', 'I', 'N'], ['#', 'R', '#', 'I', '#', '#', '#', 'Y', '#', 'M', '#'], ['J', 'O', 'L', 'L', 'Y', '#', 'J', '#', 'L', 'E', 'G'], ['#', 'S', '#', 'L', '#', 'B', 'O', 'Y', '#', '#', 'I'], ['F', 'E', 'W', '#', 'S', '#', 'I', '#', 'W', 'A', 'R'], ['E', '#', 'A', '#', 'P', '#', 'N', '#', 'A', '#', 'L'], ['W', 'O', 'R', 'R', 'Y', '#', '#', 'T', 'R', 'Y', '#']];
 
   const [crosswordData, setCrosswordData] = useState(defaultPuzzleData);
-  const [wordList, setWordList] = useState(words);
+
+  // initialize array of word objects with each word:str from words is given the clue "temp"
+  const [wordList, setWordList] = useState(words.reverse().map((w) => { return { word: w, clue: 'temp' } }));
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const regeneratePuzzle = async () => {
     setLoading(true);
     try {
+
       const response = await fetch('api/generate', {
         method: 'POST',
-        body: JSON.stringify({ words: wordList }),
+        body: JSON.stringify({ words : wordList.map((w) => w.word) }),
         headers: {
           'Content-Type': 'application/json',
         },

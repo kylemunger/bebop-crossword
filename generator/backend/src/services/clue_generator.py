@@ -39,7 +39,7 @@ class ClueGenerator:
 
     def generate_clues_and_words_messages(self):
         return [
-            {"role": "system", "content": "You are a crossword generating bot. You will generate creative crossword words and clues for a given input word."},
+            {"role": "system", "content": "You are a crossword generating bot. You will generate creative crossword words and clues for a given input word. Each clue should simply be the english clue and not include the length of the answer or any punctuation"},
             {"role": "user", "content": "Please generate 5 clues"}
         ]
 
