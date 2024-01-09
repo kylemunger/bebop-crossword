@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
 import styles from '../styles/dictManager.module.css';
+import ClueBuilder from './clueBuilder';
 
 interface DictionaryManagerProps {
   wordList: string[];
@@ -30,11 +31,11 @@ const DictionaryManager: React.FC<DictionaryManagerProps> = ({ wordList, setWord
     }
   };
 
-  const renderWord = (word) => {
+  const renderWord = (word:any) => {
     const searchChars = searchTerm.split('');
     const wordChars = word.split('');
 
-    return wordChars.map((char, index) => (
+    return wordChars.map((char:any, index:any) => (
       <span key={index} className={searchChars.includes(char) ? styles.highlightedChar : ''}>{char}</span>
     ));
 
@@ -47,6 +48,7 @@ const DictionaryManager: React.FC<DictionaryManagerProps> = ({ wordList, setWord
   return (
     <div className={styles.container}>
       <button className={styles.regenerateButton} onClick={regeneratePuzzle}>Regenerate Puzzle</button>
+      <ClueBuilder />
       <div className={styles.searchContainer}>
         <input
           className={styles.inputField}
@@ -54,7 +56,6 @@ const DictionaryManager: React.FC<DictionaryManagerProps> = ({ wordList, setWord
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search for or enter new word"
         />
-        <button className={styles.addButton} onClick={addWord}>Add Word</button>
       </div>
       <ul className={styles.wordList}>
         {filteredWords.map(word => (

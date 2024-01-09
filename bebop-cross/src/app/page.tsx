@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Crossword from '../components/crossword'
 import DictionaryManager from '../components/dictManager'
 import Spinner from '../components/spinner'
-import SuggestionsBox from '../components/suggestionsBox'
 import styles from '../styles/page.module.css'
 import words from './words'
 

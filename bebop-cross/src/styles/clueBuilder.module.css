@@ -1,0 +1,41 @@
+.clueBuilderContainer {
+    background-color: #1e1e1e; /* Dark background */
+    padding: 20px;
+    border-radius: 8px;
+    color: #e0e0e0; /* Light text color */
+}
+
+.inputField {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.addButton, .recommendButton {
+    background-color: #4CAF50; /* Greenish button color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.addButton:hover, .recommendButton:hover {
+    background-color: #45a049;
+}
+
+.recommendedCluesContainer {
+    margin-top: 20px;
+}
+
+.recommendedClue {
+    background-color: #2a2a2a; /* Slightly lighter background */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
