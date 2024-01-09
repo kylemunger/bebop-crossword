@@ -11,12 +11,10 @@ const ClueBuilder = ({ add_clue_to_dict }) => {
     const [recommendedClues, setRecommendedClues] = useState<string[]>([]);
     const [recommendedCluesAndWords, setRecommendedCluesAndWords] = useState<{ clue: string; word: string }[]>([]);
 
-    const handleAddWord = (clue: string, word: string) => {
-        console.log("Word: ", word, "Clue: ", clue);
-        setRecommendedClues([]); // Clear recommended clues
-        setRecommendedCluesAndWords([]); // Clear recommended clues
-        // Add logic to handle the word addition
-        add_clue_to_dict(clue, word);
+    const handleAddWord = (added_clue: string, added_word: string) => {
+        console.log("Word: ", added_word, "Clue: ", added_clue);
+        handleClear();
+        add_clue_to_dict(added_clue, added_word);
     };
 
     const handleRecommendClues = () => {
@@ -64,7 +62,7 @@ const ClueBuilder = ({ add_clue_to_dict }) => {
                 placeholder="Enter clue"
                 className={styles.inputField}
             />
-                <button onClick={handleAddWord} className={styles.addButton}>Add Word</button>
+                <button onClick={() => handleAddWord(clue, word)} className={styles.addButton}>Add Word</button>
                 <button onClick={handleRecommendClues} className={styles.recommendButton}>Recommend Clues</button>
                 <button onClick={handleRecommendCluesAndWords} className={styles.button}>Recommend Clues and Words</button>
                 <button onClick={handleClear} className={styles.button}>Clear</button>
