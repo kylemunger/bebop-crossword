@@ -70,20 +70,6 @@ export default function Home() {
     }
   };
 
-  const generateDescriptions = () => {
-    // Logic to generate suggestions (for demonstration, using placeholder data)
-    const newSuggestions = [
-      "Definition 1",
-      "Definition 2",
-      "Definition 3",
-      "Definition 4",
-      "Definition 5"
-    ];
-
-    // set new suggestions
-    setSuggestions(newSuggestions);
-  };
-
   return (
     <div className={styles.mainContainer}>
       <div className={styles.header}>

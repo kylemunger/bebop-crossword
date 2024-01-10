@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from '../styles/clueBuilder.module.css';
+import Spinner from './spinner';
 
 interface ClueBuilderProps {
     add_clue_to_dict: (clue: string, word: string) => void;
 }
 
 const ClueBuilder = ({ add_clue_to_dict }) => {
+    const [loading, setLoading] = useState(false);
     const [word, setWord] = useState('');
     const [clue, setClue] = useState('');
     const [recommendedClues, setRecommendedClues] = useState<string[]>([]);
@@ -17,26 +19,51 @@ const ClueBuilder = ({ add_clue_to_dict }) => {
         add_clue_to_dict(added_clue, added_word);
     };
 
-    const handleRecommendClues = () => {
-        setRecommendedClues([]); // Clear recommended clues
-        setRecommendedCluesAndWords([]); // Clear recommended clues
-        // Dummy recommended clues for demonstration
-        setRecommendedClues([
-            "First recommended clue",
-            "Second recommended clue",
-            "Third recommended clue"
-        ]);
+    const handleRecommendClues = async () => {
+        setLoading(true);
+        try {
+            const response = await fetch('api/suggest_clues_for_word', {
+                method: 'POST',
+                body: JSON.stringify({ word }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                const data = JSON.parse(await response.json());
+                console.log(typeof data);
+                console.log(data);
+                setRecommendedCluesAndWords([]); // Clear recommended clues
+                setRecommendedClues(data);
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    const handleRecommendCluesAndWords = () => {
-        setRecommendedClues([]); // Clear recommended clues
-        setRecommendedCluesAndWords([]); // Clear recommended clues
-        // Dummy recommended clues and words for demonstration
-        setRecommendedCluesAndWords([
-            { clue: "First clue", word: "Answer 1" },
-            { clue: "Second clue", word: "Answer 2" },
-            { clue: "Third clue", word: "Answer 3" }
-        ]);
+    const handleRecommendCluesAndWords = async () => {
+        setLoading(true);
+        try {
+            const response = await fetch('api/suggest_clues', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                const data = JSON.parse(await response.json());
+                console.log(typeof data);
+                console.log(data);
+                setRecommendedClues([]);
+                setRecommendedCluesAndWords(data);
+            }
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleClear = () => {
@@ -67,6 +94,7 @@ const ClueBuilder = ({ add_clue_to_dict }) => {
                 <button onClick={handleRecommendClues} className={styles.recommendButton}>Recommend Clues</button>
                 <button onClick={handleRecommendCluesAndWords} className={styles.button}>Recommend Clues and Words</button>
                 <button onClick={handleClear} className={styles.button}>Clear</button>
+                {loading ? (<Spinner />) : (<div />)}
             </div>
             <div className={styles.recommendedCluesContainer}>
                 {recommendedClues.map((clue, index) => (

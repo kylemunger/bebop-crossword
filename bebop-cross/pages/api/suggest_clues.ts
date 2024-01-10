@@ -13,7 +13,8 @@ export default async function GET(req: NextApiRequest, res: NextApiResponse) {
       });
     
       const data = await response.json();
-      res.status(200).json(data);
+      console.log(data);
+      res.status(200).json(JSON.stringify(data));
   } catch (error : any) {
     res.status(500).json({ statusCode: 500, message: error.message });
   }

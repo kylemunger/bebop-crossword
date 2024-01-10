@@ -85,12 +85,12 @@ class ClueGenerator:
                                         "type": "string",
                                         "description": "A crossword clue"
                                     },
-                                    "answer": {
+                                    "word": {
                                         "type": "string",
                                         "description": "The answer to the crossword clue"
                                     }
                                 },
-                                "required": ["clue", "answer"]
+                                "required": ["clue", "word"]
                             }
                         }
                     },

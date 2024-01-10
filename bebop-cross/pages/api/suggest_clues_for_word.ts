@@ -5,7 +5,8 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       // call localhost:30000/v1/crossword/generate
       // return the string[][] of the crossword
       const { word } = req.body;
-      const url = 'http://localhost:30000/v1/crossword/generate_for_word';
+      console.log(word);
+      const url = 'http://localhost:30000/v1/crossword/clues/generate_for_word';
       const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify( { 'word': word } ),
@@ -15,7 +16,8 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       });
     
       const data = await response.json();
-      res.status(200).json(data);
+      console.log(data);
+      res.status(200).json(JSON.stringify(data));
   } catch (error : any) {
     res.status(500).json({ statusCode: 500, message: error.message });
   }
