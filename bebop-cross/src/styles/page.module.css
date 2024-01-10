@@ -31,21 +31,22 @@
     align-items: center; /* Center children horizontally */
     justify-content: flex-start; /* Align children to the top */
     flex: 2; /* Adjust as necessary */
-    padding: 0 20px; /* Add some padding if needed */
+    padding: 0 0px; /* Add some padding if needed */
 }
 
 .dictionaryManagerContainer {
     flex: 1; /* Takes less space */
     margin-right: 20px; /* Spacing between the components */
     overflow-y: auto; /* Scrollbar if the content is too long */
-    max-height: calc(100vh - 60px); /* Adjust the max height to account for header and padding */
+    max-height: calc(100vh - 130px); /* Adjust the max height to account for header and padding */
 }
 
 .crosswordContainer {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center children horizontally */
-    justify-content: center; /* Center children vertically */
     position: sticky;
-    top: 60px; /* Adjust if necessary to account for header height */
+    max-height: calc(100vh - 130px); /* Adjust the max height to account for header and padding */
+    overflow-y: auto; /* Scrollbar if the content is too long */
+    top: 120px; /* Adjust if necessary to account for header height */
 }

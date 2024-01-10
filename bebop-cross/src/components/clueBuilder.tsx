@@ -6,7 +6,7 @@ interface ClueBuilderProps {
     add_clue_to_dict: (clue: string, word: string) => void;
 }
 
-const ClueBuilder = ({ add_clue_to_dict }) => {
+const ClueBuilder: React.FC<ClueBuilderProps> = ({ add_clue_to_dict }) => {
     const [loading, setLoading] = useState(false);
     const [word, setWord] = useState('');
     const [clue, setClue] = useState('');
