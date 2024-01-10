@@ -32,7 +32,7 @@ const DictionaryManager: React.FC<DictionaryManagerProps> = ({ wordList, setWord
   const addWord = (newClue: string, newWord: string) => {
     const newWordItem = { word: newWord, clue: newClue };
     if (newWord && !wordList.some(item => item.word === newWord)) {
-      setWordList([...wordList, newWordItem]);
+      setWordList([newWordItem, ...wordList]);
     }
   };
 
@@ -50,10 +50,19 @@ const DictionaryManager: React.FC<DictionaryManagerProps> = ({ wordList, setWord
     setWordList(wordList.filter(item => item.word !== word));
   };
 
+  const changeClue = (wordItem: WordItem) => {
+    // Prompt the user to enter a new clue
+    const newClue = window.prompt(`Enter a new clue for ${wordItem.word}:`, wordItem.clue);
+    if (newClue !== null && newClue !== wordItem.clue) {
+      // Update the word list with the new clue
+      setWordList(wordList.map(item => item.word === wordItem.word ? { ...item, clue: newClue } : item));
+    }
+  };
+
   return (
     <div className={styles.container}>
       <button className={styles.regenerateButton} onClick={regeneratePuzzle}>Regenerate Puzzle</button>
-      <ClueBuilder add_clue_to_dict={ addWord }/>
+      <ClueBuilder add_clue_to_dict={addWord} />
       <div className={styles.searchContainer}>
         <input
           className={styles.inputField}
@@ -72,7 +81,10 @@ const DictionaryManager: React.FC<DictionaryManagerProps> = ({ wordList, setWord
               <p className={styles.wordDescription}>
                 {item.clue}
               </p>
-              <button className={styles.deleteButton} onClick={() => deleteWord(item.word)}>Delete</button>
+              <div>
+                <button className={styles.changeClueButton} onClick={() => changeClue(item)}>Change Clue</button>
+                <button className={styles.deleteButton} onClick={() => deleteWord(item.word)}>Delete</button>
+              </div>
             </div>
           </li>
         ))}
