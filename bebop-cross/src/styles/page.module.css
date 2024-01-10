@@ -8,52 +8,44 @@
 }
 
 .header {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 20px;
-  font-weight: bold;
-  position: sticky;
-  top: 0px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .bigContentContainer {
     display: flex;
-    flex: 1; /* Takes up the remaining space after the header */
     flex-direction: row; /* Aligns the components horizontally */
     margin-top: 40px;
-    max-height: 100%;
-    position: sticky;
-    align-items: flex-start;
-    height: 100vh - 20px;
-    overflow: hidden;
-    top: 40px;
 }
 
 .contentContainer {
     display: flex;
-    flex: 1; /* Takes up the remaining space after the header */
-    flex-direction: column; /* Aligns the components horizontally */
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    justify-content: flex-start; /* Align children to the top */
+    flex: 2; /* Adjust as necessary */
+    padding: 0 20px; /* Add some padding if needed */
 }
 
 .dictionaryManagerContainer {
-    flex: 1; /* Adjust the flex ratio as needed */
+    flex: 1; /* Takes less space */
     margin-right: 20px; /* Spacing between the components */
     overflow-y: auto; /* Scrollbar if the content is too long */
-    max-height: 100%;
+    max-height: calc(100vh - 60px); /* Adjust the max height to account for header and padding */
 }
 
 .crosswordContainer {
-    flex: 2; /* Adjust the flex ratio as needed */
-    height: auto; /* Full height of the parent */
-    position: sticky; /* Needed if you want the crossword to be absolutely positioned */
-    overflow: hidden;
-    top: 40px;
-}
-
-.suggestionsContainer {
-    height: auto; /* Let it take the height it needs */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically */
     position: sticky;
-    top: 20px; /* Adjust this based on your header height */
+    top: 60px; /* Adjust if necessary to account for header height */
 }
