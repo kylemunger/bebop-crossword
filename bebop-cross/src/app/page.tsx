@@ -27,7 +27,7 @@ export default function Home() {
 
       const response = await fetch('api/generate', {
         method: 'POST',
-        body: JSON.stringify({ words : wordList.map((w) => w.word) }),
+        body: JSON.stringify({ words: wordList.map((w) => w.word) }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -76,15 +76,15 @@ export default function Home() {
         <h1>Bebop Crossword</h1>
       </div>
       <div className={styles.bigContentContainer}>
-        <div className={styles.dictionaryManagerContainer}>
-          <DictionaryManager wordList={wordList} setWordList={setWordList} regeneratePuzzle={regeneratePuzzle} />
-        </div>
         <div className={styles.contentContainer}>
           <div className={styles.crosswordContainer}>
             {loading ? (<Spinner />) : (<Crossword puzzle={crosswordData} cluesDict={wordList} />)}
           </div>
         </div>
+        <div className={styles.dictionaryManagerContainer}>
+          <DictionaryManager wordList={wordList} setWordList={setWordList} regeneratePuzzle={regeneratePuzzle} />
+        </div>
       </div>
     </div>
-  )
+  );
 };
