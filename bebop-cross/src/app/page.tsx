@@ -4,7 +4,7 @@ import Crossword from '../components/crossword'
 import DictionaryManager from '../components/dictManager'
 import Spinner from '../components/spinner'
 import styles from '../styles/page.module.css'
-import words from './words'
+import wordClues from './words'
 
 interface WordItem {
   word: string;
@@ -17,7 +17,7 @@ export default function Home() {
   const [crosswordData, setCrosswordData] = useState(defaultPuzzleData);
 
   // initialize array of word objects with each word:str from words is given the clue "temp"
-  const [wordList, setWordList] = useState(words.reverse().map((w) => { return { word: w, clue: 'temp' } }));
+  const [wordList, setWordList] = useState(wordClues);
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
 
