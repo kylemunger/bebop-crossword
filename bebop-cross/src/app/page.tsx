@@ -81,7 +81,7 @@ export default function Home() {
         </div>
         <div className={styles.contentContainer}>
           <div className={styles.crosswordContainer}>
-            {loading ? (<Spinner />) : (<Crossword puzzle={crosswordData} />)}
+            {loading ? (<Spinner />) : (<Crossword puzzle={crosswordData} cluesDict={wordList} />)}
           </div>
         </div>
       </div>

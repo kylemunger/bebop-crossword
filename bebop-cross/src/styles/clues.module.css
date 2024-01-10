@@ -1,0 +1,26 @@
+/* Clues.module.css */
+.cluesContainer {
+  display: flex;
+  justify-content: space-between;
+  color: #e0e0e0;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.cluesColumn {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.clue {
+  margin-bottom: 10px;
+}
+
+.cluesColumn:last-child {
+  margin-right: 0;
+}
+
+/* Add more styles as needed */
+
