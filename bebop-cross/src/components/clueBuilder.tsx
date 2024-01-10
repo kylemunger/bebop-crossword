@@ -62,10 +62,12 @@ const ClueBuilder = ({ add_clue_to_dict }) => {
                 placeholder="Enter clue"
                 className={styles.inputField}
             />
+            <div className={styles.buttonsContainer}>
                 <button onClick={() => handleAddWord(clue, word)} className={styles.addButton}>Add Word</button>
                 <button onClick={handleRecommendClues} className={styles.recommendButton}>Recommend Clues</button>
                 <button onClick={handleRecommendCluesAndWords} className={styles.button}>Recommend Clues and Words</button>
                 <button onClick={handleClear} className={styles.button}>Clear</button>
+            </div>
             <div className={styles.recommendedCluesContainer}>
                 {recommendedClues.map((clue, index) => (
                     <div key={index} className={styles.recommendedItem}>

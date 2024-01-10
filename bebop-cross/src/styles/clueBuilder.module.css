@@ -29,7 +29,6 @@
 .buttonsContainer {
     display: flex;
     flex-wrap: wrap;
-    align-items: center; /* Vertically centers children in the container */
 }
 
 .recommendedClue {
@@ -52,10 +51,6 @@
     transition: background-color 0.3s;
 }
 
-.addButton:hover {
-    background-color: #45a049;
-}
-
 .addButton:hover, .recommendButton:hover {
     background-color: #45a049;
 }
@@ -68,7 +63,7 @@
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
-    transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 .button:hover {
