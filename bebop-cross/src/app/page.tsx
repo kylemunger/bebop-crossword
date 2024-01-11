@@ -17,7 +17,7 @@ export default function Home() {
   const [crosswordData, setCrosswordData] = useState(defaultPuzzleData);
 
   // initialize array of word objects with each word:str from words is given the clue "temp"
-  const [wordList, setWordList] = useState(wordClues);
+  const [wordList, setWordList] = useState(wordClues.reverse());
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
 

@@ -11,7 +11,7 @@ const Crossword: React.FC<CrosswordProps> = ({ puzzle, cluesDict }) => {
   const gridSize = puzzle.length; // Assuming a square grid
   let wordNumber = 1;
 
-  const extractWordsAndClues = (puzzle, cluesDict) => {
+  const extractWordsAndClues = (puzzle:string[][], cluesDict:{ word: string; clue: string }[]) => {
     const acrossWords = [];
     const downWords = [];
     let number = 1;
@@ -50,7 +50,7 @@ const Crossword: React.FC<CrosswordProps> = ({ puzzle, cluesDict }) => {
     return { acrossWords, downWords };
   };
 
-  const extractWord = (puzzle, startRow, startCol, direction) => {
+  const extractWord = (puzzle: string | any[], startRow: number, startCol: number, direction: string) => {
     let word = '';
     let row = startRow;
     let col = startCol;
@@ -72,7 +72,7 @@ const Crossword: React.FC<CrosswordProps> = ({ puzzle, cluesDict }) => {
   };
 
 
-  const isStartOfWord = (row, col) => {
+  const isStartOfWord = (row: number, col: number) => {
     const cell = puzzle[row][col];
     // A cell that is a black square is not the start of a word
     if (cell === '#') return false;
