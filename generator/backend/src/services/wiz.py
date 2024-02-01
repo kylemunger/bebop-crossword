@@ -1,11 +1,9 @@
 import os
 import re
-import platform
 import random
 import time
-import functools
-import operator
 from services.libWizium import Wizium
+
 
 class Wiz:
     def __init__(self):
@@ -15,10 +13,10 @@ class Wiz:
     def generate_crossword(self, words):
         fmt = [re.sub('[^a-zA-Z]+', '', s) for s in words]
         self.wizium.dic_clear()
-        n = self.wizium.dic_add_entries(fmt)
+        self.wizium.dic_add_entries(fmt)
         tx = [0, 2, 3]
 
-        self.wizium.grid_set_size(11,11)
+        self.wizium.grid_set_size(11, 11)
         self.wizium.grid_set_box(5, 5, 'BLACK')
 
         for i in range(3):

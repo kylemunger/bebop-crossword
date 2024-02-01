@@ -5,5 +5,5 @@ app = Flask(__name__)
 
 with app.app_context():
     core = Core()
-    core.wire(modules=[__name__, 'endpoints', 'services.wiz'])
+    core.wire(modules=[__name__, "endpoints", "services.wiz"])
     import endpoints

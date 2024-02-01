@@ -25,8 +25,10 @@ __version__ = "1.0"
 import ctypes
 import platform
 
+
 def is_unix_platform():
     return platform.system() in ('Linux', 'Darwin')
+
 
 if is_unix_platform():
     from ctypes import *
@@ -42,6 +44,7 @@ BLOCK = '#'
 BLOCK_CODE = ord(BLOCK)
 VOID = '-'
 VOID_CODE = ord(VOID)
+
 
 class Wizium:
     "Wrapper around the libWizium library"
@@ -110,17 +113,23 @@ class Wizium:
         self._api_def["WIZ_CreateInstance"] = (ctypes.c_ulonglong, [ctypes.POINTER(Wizium.Config)])
         self._api_def["WIZ_DestroyInstance"] = (ctypes.c_int, [ctypes.c_ulonglong])
         self._api_def["DIC_Clear"] = (ctypes.c_int, [ctypes.c_ulonglong])
-        self._api_def["DIC_AddEntries"] = (ctypes.c_int, [ctypes.c_ulonglong, ctypes.POINTER(ctypes.c_uint8), ctypes.c_int])
-        self._api_def["DIC_FindEntry"] = (ctypes.c_bool, [ctypes.c_ulonglong, ctypes.POINTER(ctypes.c_uint8), ctypes.POINTER(ctypes.c_uint8), ctypes.POINTER(ctypes.c_uint8)])
-        self._api_def["DIC_FindRandomEntry"] = (ctypes.c_bool, [ctypes.c_ulonglong, ctypes.POINTER(ctypes.c_uint8), ctypes.POINTER(ctypes.c_uint8)])
+        self._api_def["DIC_AddEntries"] = (
+            ctypes.c_int, [ctypes.c_ulonglong, ctypes.POINTER(ctypes.c_uint8), ctypes.c_int])
+        self._api_def["DIC_FindEntry"] = (ctypes.c_bool, [ctypes.c_ulonglong, ctypes.POINTER(
+            ctypes.c_uint8), ctypes.POINTER(ctypes.c_uint8), ctypes.POINTER(ctypes.c_uint8)])
+        self._api_def["DIC_FindRandomEntry"] = (
+            ctypes.c_bool, [ctypes.c_ulonglong, ctypes.POINTER(ctypes.c_uint8), ctypes.POINTER(ctypes.c_uint8)])
         self._api_def["DIC_GetNumWords"] = (ctypes.c_uint, [ctypes.c_ulonglong])
         self._api_def["GRID_SetSize"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.c_uint8, ctypes.c_uint8])
-        self._api_def["GRID_SetBox"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.c_uint8, ctypes.c_uint8, ctypes.c_int])
-        self._api_def["GRID_Write"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.c_uint8, ctypes.c_uint8, ctypes.POINTER(ctypes.c_uint8), ctypes.c_char, ctypes.c_bool])
+        self._api_def["GRID_SetBox"] = (ctypes.c_uint, [ctypes.c_ulonglong,
+                                        ctypes.c_uint8, ctypes.c_uint8, ctypes.c_int])
+        self._api_def["GRID_Write"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.c_uint8,
+                                       ctypes.c_uint8, ctypes.POINTER(ctypes.c_uint8), ctypes.c_char, ctypes.c_bool])
         self._api_def["GRID_Read"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.POINTER(ctypes.c_uint8)])
         self._api_def["GRID_Erase"] = (ctypes.c_uint, [ctypes.c_ulonglong])
         self._api_def["SOLVER_Start"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.POINTER(Wizium.SolverConfig)])
-        self._api_def["SOLVER_Step"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.c_int, ctypes.c_int, ctypes.POINTER(Wizium.Status)])
+        self._api_def["SOLVER_Step"] = (ctypes.c_uint, [ctypes.c_ulonglong, ctypes.c_int,
+                                        ctypes.c_int, ctypes.POINTER(Wizium.Status)])
         self._api_def["SOLVER_Stop"] = (ctypes.c_uint, [ctypes.c_ulonglong])
 
         for func_name in self._api_def:
@@ -486,7 +495,8 @@ def make_codec(alphabet, __alphabets={}):
 
     max_alphabet_len = min(BLOCK_CODE, VOID_CODE, WILDCARD_CODE) - 1
     if len(alphabet) > max_alphabet_len:
-        raise ValueError(f"alphabet cannot have more than {max_alphabet_len} characters due to internal encoding of blocks, voids and wildcards")
+        raise ValueError(
+            f"alphabet cannot have more than {max_alphabet_len} characters due to internal encoding of blocks, voids and wildcards")
 
     import codecs
 

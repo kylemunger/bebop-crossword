@@ -1,8 +1,9 @@
 from openai import OpenAI
 import json
 
+
 class ClueGenerator:
-    def __init__(self, client:OpenAI):
+    def __init__(self, client: OpenAI):
         self.client = client
         self.model = "gpt-4-1106-preview"
         self.fnname = "generate_crossword_clues"
